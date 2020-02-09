@@ -133,12 +133,12 @@ class GameBoard():
         diff_x = start.x - temp.x
         diff_y = start.y - temp.y
 
-        if diff_x == 1:
-            return "right"
         if diff_x == -1:
+            return "right"
+        if diff_x == 1:
             return "left"
-        if diff_y == 1:
-            return "down"
         if diff_y == -1:
+            return "down"
+        if diff_y == 1:
             return "up"
 
