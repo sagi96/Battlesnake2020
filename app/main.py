@@ -3,7 +3,7 @@ import os
 import random
 import bottle
 
-from logic import GameBoard
+from logic import GameBoard, Point
 
 from api import ping_response, start_response, move_response, end_response
 
@@ -69,7 +69,7 @@ def move():
 
 
     # when turn < 50 go for food
-    direction = board.bfs({x: head["x"], y: head["y"]} ,7) 
+    direction = board.bfs(Point(data=head), 7) 
 
     return move_response(direction)
 

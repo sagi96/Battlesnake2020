@@ -1,3 +1,14 @@
+class Point:
+    def __init__(self, data=None, x=0, y=0):
+        if data != None:
+            self.x = data["x"]
+            self.y = data["y"]
+            return
+        else:
+            self.x = x
+            self.y = y
+
+
 class GameBoard():
     """
     0 - Empty space
@@ -14,8 +25,8 @@ class GameBoard():
         """Creates a new game board"""
         if data == None:
             print("Data not set... its going to crash")
-            return 
-        
+            return
+
         self.height = data["board"]["height"]
         self.width = data["board"]["width"]
         self.board = []  # array of arrays
@@ -82,8 +93,7 @@ class GameBoard():
                 self.enqueue_around_point(tile, queue, visited, pg)
 
     def enqueue_around_head(self, tile, queue):
-        points = [{x: tile.x, y: tile.y - 1}, {x: tile.x, y: tile.y + 1},
-                  {x: tile.x - 1, y: tile.y}, {x: tile.x + 1, y: tile.y}]
+        points = [Point(x=tile.x, y=tile.y - 1), Point(x=tile.x, y=tile.y + 1}, Point(x=tile.x - 1, y=tile.y), Point(x=tile.x + 1, y=tile.y)]
 
         for point in points:
             val = self.board[point.x][point.y]
@@ -91,19 +101,18 @@ class GameBoard():
                 queue.append(point)
 
     def enqueue_around_point(self, tile, queue, visted, parent_graph):
-        points = [{x: tile.x, y: tile.y - 1}, {x: tile.x, y: tile.y + 1},{x: tile.x - 1, y: tile.y}, {x: tile.x + 1, y: tile.y}]
+        points = [Point(x=tile.x, y=tile.y - 1), Point(x=tile.x, y=tile.y + 1}, Point(x=tile.x - 1, y=tile.y), Point(x=tile.x + 1, y=tile.y)]
 
         for point in points:
             if not visted.contains(point):
                 queue.append(point)
                 parent_graph[point] = tile
 
-
     def get_relative_direction(self, start, end, pg):
         temp = end
         while pg[temp] != None:
             temp = pg[temp]
-        
+
         diff_x = start.x - temp.x
         diff_y = start.y - temp.y
 
