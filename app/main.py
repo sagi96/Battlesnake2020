@@ -3,10 +3,8 @@ import os
 import random
 import bottle
 
-from logic import GameBoard, Point
-
 from api import ping_response, start_response, move_response, end_response
-
+from logic import GameBoard, Point
 
 @bottle.route('/')
 def index():
