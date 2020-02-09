@@ -63,9 +63,8 @@ def move():
     print(json.dumps(data))
 
     directions = ['up', 'down', 'left', 'right']
-    direction = random.choice(directions)
 
-    board = GameBoard(data)
+    board = GameBoard(data=data)
 
     # when turn < 50 go for food
     direction = board.bfs(7) 

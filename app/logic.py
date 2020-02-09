@@ -10,8 +10,13 @@ class GameBoard():
     7 - food
     """
 
-    def __init__(self, data):
-        self.height = data.board.height
+    def __init__(self, data=None):
+        """Creates a new game board"""
+        if data == None:
+            print("Data not set... its going to crash")
+            return 
+        
+        self.height = data["board"]["height"]
         self.width = data.board.width
         self.board = []  # array of arrays
 
