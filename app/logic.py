@@ -1,3 +1,4 @@
+
 class Point:
     def __init__(self, data=None, x=0, y=0):
         if data != None:
@@ -124,3 +125,4 @@ class GameBoard():
             return "down"
         if diff_y == -1:
             return "up"
+
