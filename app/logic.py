@@ -98,7 +98,7 @@ class GameBoard():
 
         for point in points:
             val = self.board[point.x][point.y]
-            if not visted.contains(point) and (val == 0 or val == 3 or val == 7):
+            if (val == 0 or val == 3 or val == 7):
                 queue.append(point)
 
     def enqueue_around_point(self, tile, queue, visted, parent_graph):
