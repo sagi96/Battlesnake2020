@@ -101,10 +101,10 @@ class GameBoard():
 
             tile_val = self.board[tile.x][tile.y]
 
-            if tile in visited:
+            if str(tile) in visited:
                 continue
 
-            visited.add(tile)
+            visited.add(str(tile))
 
             if tile_val == num:
                 return self.get_relative_direction(start, tile, pg)
