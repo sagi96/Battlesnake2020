@@ -91,10 +91,12 @@ class GameBoard():
 
         # While we are still in the queue
         while len(queue) != 0:
-            pass
             tile = queue.pop(0)
             print("tile: ", end='')
             print(str(tile))
+            if tile.x >= self.width or tile.x < 0 or tile.y >= self.height or tile.y < 0:
+                continue
+
             tile_val = self.board[tile.x][tile.y]
 
             if tile in visited:
@@ -125,7 +127,7 @@ class GameBoard():
 
     def get_relative_direction(self, start, end, pg):
         temp = end
-        while pg[temp] != None:
+        while temp in pg:
             temp = pg[temp]
 
         diff_x = start.x - temp.x
