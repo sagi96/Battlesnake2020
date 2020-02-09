@@ -93,7 +93,7 @@ class GameBoard():
                 self.enqueue_around_point(tile, queue, visited, pg)
 
     def enqueue_around_head(self, tile, queue):
-        points = [Point(x=tile.x, y=tile.y - 1), Point(x=tile.x, y=tile.y + 1}, Point(x=tile.x - 1, y=tile.y), Point(x=tile.x + 1, y=tile.y)]
+        points = [Point(x=tile.x, y=tile.y - 1), Point(x=tile.x, y=tile.y + 1), Point(x=tile.x - 1, y=tile.y), Point(x=tile.x + 1, y=tile.y)]
 
         for point in points:
             val = self.board[point.x][point.y]
@@ -101,7 +101,7 @@ class GameBoard():
                 queue.append(point)
 
     def enqueue_around_point(self, tile, queue, visted, parent_graph):
-        points = [Point(x=tile.x, y=tile.y - 1), Point(x=tile.x, y=tile.y + 1}, Point(x=tile.x - 1, y=tile.y), Point(x=tile.x + 1, y=tile.y)]
+        points = [Point(x=tile.x, y=tile.y - 1), Point(x=tile.x, y=tile.y + 1), Point(x=tile.x - 1, y=tile.y), Point(x=tile.x + 1, y=tile.y)]
 
         for point in points:
             if not visted.contains(point):
