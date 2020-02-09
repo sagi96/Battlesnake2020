@@ -51,7 +51,7 @@ class GameBoard():
         # set the board at head to the you head value (6)
         self.board[you_tail["x"]][you_tail["y"]] = 6
         you_head = data["you"]["body"][0]
-        self.board[you_head.x][you_head.y] = 4
+        self.board[you_head["x"]][you_head["y"]] = 4
 
     def bfs(self, start, num):
         """
