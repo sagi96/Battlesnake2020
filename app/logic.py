@@ -17,7 +17,7 @@ class GameBoard():
             return 
         
         self.height = data["board"]["height"]
-        self.width = data.board.width
+        self.width = data["board"]["width"]
         self.board = []  # array of arrays
 
         # init board
@@ -28,29 +28,29 @@ class GameBoard():
             self.board.append(column)
 
         # go through all the snakes and add them to the board
-        for snake in data.board.snakes:
-            for bodypart in snake.body:
-                self.board[bodypart.x][bodypart.y] = 2
+        for snake in data["board"]["snakes"]:
+            for bodypart in snake["body"]:
+                self.board[bodypart["x"]][bodypart["y"]] = 2
             # add tail
-            tail = snake.body[-1]
-            self.board[tail.x][tail.y] = 3
+            tail = snake["body"][-1]
+            self.board[tail["x"]][tail["y"]] = 3
             # add head
-            head = snake.body[0]
-            self.board[head.x][head.y] = 1
+            head = snake["body"][0]
+            self.board[head["x"]][head["y"]] = 1
 
         # go through the food and add it to the board
-        for food in data.board.food:
-            self.board[food.x][food.y] = 7
+        for food in data["board"]["food"]:
+            self.board[food["x"]][food["y"]] = 7
 
         # go through self
-        for you in data.you.body:
-            self.board[you.x][you.y] = 5
+        for you in data["you"]["body"]:
+            self.board[you["x"]][you["y"]] = 5
 
         # get the head from the us
-        you_tail = data.you.body[-1]
+        you_tail = data["you"]["body"][-1]
         # set the board at head to the you head value (6)
-        self.board[you_tail.x][you_tail.y] = 6
-        you_head = data.you.body[0]
+        self.board[you_tail["x"]][you_tail["y"]] = 6
+        you_head = data["you"]["body"][0]
         self.board[you_head.x][you_head.y] = 4
 
     def bfs(self, start, num):
