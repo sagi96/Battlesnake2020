@@ -3,6 +3,8 @@ import os
 import random
 import bottle
 
+import logic
+
 from api import ping_response, start_response, move_response, end_response
 
 
@@ -62,6 +64,11 @@ def move():
 
     directions = ['up', 'down', 'left', 'right']
     direction = random.choice(directions)
+
+    board = GameBoard(data)
+
+    # when turn < 50 go for food
+    direction = board.bfs(7) 
 
     return move_response(direction)
 
