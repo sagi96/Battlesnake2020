@@ -9,6 +9,9 @@ class Point:
             self.x = x
             self.y = y
 
+    def __str__(self):
+        return "x: " + str(self.x) + " y: " + str(self.y)
+
 
 class GameBoard():
     """
@@ -91,7 +94,7 @@ class GameBoard():
             pass
             tile = queue.pop(0)
             print("tile: ", end='')
-            print(tile)
+            print(str(tile))
             tile_val = self.board[tile.x][tile.y]
 
             if tile in visited:
