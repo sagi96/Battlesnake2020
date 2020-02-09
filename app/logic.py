@@ -65,6 +65,15 @@ class GameBoard():
         you_head = data["you"]["body"][0]
         self.board[you_head["x"]][you_head["y"]] = 4
 
+        print("This is the created board")
+        self.printBoard()
+
+    def printBoard(self):
+        for x in range(0, self.height):
+            for y in range(0, self.width):
+                print(self.board[x][y], end='')
+            print()
+
     def bfs(self, start, num):
         """
         Start is the point on the board we start looking from
