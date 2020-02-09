@@ -119,7 +119,6 @@ class GameBoard():
             val = self.board[point.x][point.y]
             if (val == 0 or val == 3 or val == 7):
                 queue.append(point)
-                visted.add(point)
 
     def enqueue_around_point(self, tile, queue, visted, parent_graph):
         points = [Point(x=tile.x, y=(tile.y - 1)), Point(x=tile.x, y=(tile.y + 1)), Point(x=(tile.x - 1), y=tile.y), Point(x=(tile.x + 1), y=tile.y)]
