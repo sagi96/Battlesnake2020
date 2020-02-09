@@ -101,6 +101,7 @@ class GameBoard():
 
             if tile in visited:
                 continue
+            
             visited.add(tile)
 
             if tile_val == num:
@@ -116,6 +117,7 @@ class GameBoard():
             val = self.board[point.x][point.y]
             if (val == 0 or val == 3 or val == 7):
                 queue.append(point)
+                visted.add(point)
 
     def enqueue_around_point(self, tile, queue, visted, parent_graph):
         points = [Point(x=tile.x, y=(tile.y - 1)), Point(x=tile.x, y=(tile.y + 1)), Point(x=(tile.x - 1), y=tile.y), Point(x=(tile.x + 1), y=tile.y)]
@@ -123,6 +125,7 @@ class GameBoard():
         for point in points:
             if not (point in visted):
                 queue.append(point)
+                visted.add(point)
                 parent_graph[point] = tile
 
     def get_relative_direction(self, start, end, pg):
