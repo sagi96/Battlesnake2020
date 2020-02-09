@@ -126,7 +126,6 @@ class GameBoard():
         for point in points:
             if not (point in visted):
                 queue.append(point)
-                visted.add(point)
                 parent_graph[point] = tile
 
     def get_relative_direction(self, start, end, pg):
