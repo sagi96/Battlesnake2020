@@ -65,9 +65,11 @@ def move():
     directions = ['up', 'down', 'left', 'right']
 
     board = GameBoard(data=data)
+    head = data["you"]["body"][0]
+
 
     # when turn < 50 go for food
-    direction = board.bfs(7) 
+    direction = board.bfs({x: head["x"], y: head["y"]} ,7) 
 
     return move_response(direction)
 
