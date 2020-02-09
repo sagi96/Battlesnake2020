@@ -92,16 +92,18 @@ class GameBoard():
         # While we are still in the queue
         while len(queue) != 0:
             tile = queue.pop(0)
-            print("tile: ", end='')
-            print(str(tile))
             if tile.x >= self.width or tile.x < 0 or tile.y >= self.height or tile.y < 0:
                 continue
+
+
+            print("tile: ", end='')
+            print(str(tile))
 
             tile_val = self.board[tile.x][tile.y]
 
             if tile in visited:
                 continue
-            
+
             visited.add(tile)
 
             if tile_val == num:
