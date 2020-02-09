@@ -3,7 +3,7 @@ import os
 import random
 import bottle
 
-import logic
+from logic import GameBoard
 
 from api import ping_response, start_response, move_response, end_response
 
