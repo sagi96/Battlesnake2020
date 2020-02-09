@@ -83,7 +83,7 @@ class GameBoard():
             tile = queue.pop(0)
             tile_val = self.board[tile.x][tile.y]
 
-            if visited.contains(tile):
+            if tile in visited:
                 continue
             visited.add(tile)
 
@@ -105,7 +105,7 @@ class GameBoard():
         points = [Point(x=tile.x, y=tile.y - 1), Point(x=tile.x, y=tile.y + 1), Point(x=tile.x - 1, y=tile.y), Point(x=tile.x + 1, y=tile.y)]
 
         for point in points:
-            if not visted.contains(point):
+            if not (point in visted):
                 queue.append(point)
                 parent_graph[point] = tile
 
