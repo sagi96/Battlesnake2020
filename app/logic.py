@@ -117,7 +117,7 @@ class GameBoard():
         points = [Point(x=tile.x, y=(tile.y - 1)), Point(x=tile.x, y=(tile.y + 1)), Point(x=(tile.x - 1), y=tile.y), Point(x=(tile.x + 1), y=tile.y)]
 
         for point in points:
-            if not (tile.x >= self.width - 1 or tile.x < 0 or tile.y >= self.height - 1 or tile.y < 0):
+            if not (tile.x >= self.width or tile.x < 0 or tile.y >= self.height or tile.y < 0):
                 val = self.board[point.x][point.y]
                 if (val == 0 or val == 3 or val == 7):
                     queue.append(point)
